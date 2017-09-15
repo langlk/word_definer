@@ -7,7 +7,7 @@ describe('WordDefiner::Word') do
   before() do
     WordDefiner::Word.clear_all
   end
-  
+
   it "stores a word inputted by a user" do
     palindrome = WordDefiner::Word.new("Palindrome")
     expect(palindrome.term).to(eq("Palindrome"))
@@ -46,8 +46,32 @@ describe('WordDefiner::Word') do
 
   describe('.clear_all') do
     it "removes all words from the words list" do
+      anagram = WordDefiner::Word.new("Anagram")
+      anagram.save
       WordDefiner::Word.clear_all
       expect(WordDefiner::Word.all).to(eq([]))
+    end
+  end
+
+  describe('.find') do
+    it "finds a word by its term" do
+      anagram = WordDefiner::Word.new("anagram")
+      anagram.save
+      palindrome = WordDefiner::Word.new("palindrome")
+      palindrome.save
+      expect(WordDefiner::Word.find("anagram")).to(eq(anagram))
+    end
+
+    it "ignores case when finding a word" do
+      anagram = WordDefiner::Word.new("anagram")
+      anagram.save
+      palindrome = WordDefiner::Word.new("palindrome")
+      palindrome.save
+      expect(WordDefiner::Word.find("ANAGRAM")).to(eq(anagram))
+    end
+
+    it "returns 'Word not found' if word is not saved in list" do
+      expect(WordDefiner::Word.find("potato")).to(eq("Word not found"))
     end
   end
 end

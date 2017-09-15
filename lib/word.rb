@@ -27,5 +27,13 @@ module WordDefiner
     def self.clear_all
       @@words = {}
     end
+
+    def self.find(term)
+      if @@words.has_key?(term.downcase)
+        return @@words[term.downcase]
+      else
+        return "Word not found"
+      end
+    end
   end
 end

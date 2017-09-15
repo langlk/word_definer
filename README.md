@@ -26,15 +26,18 @@ _A Ruby Web App_
 * Program shows a list of all saved words.
   * Example input: palindrome.save, anagram.save, antigram.save
   * Example output: Word.all = ["Palindrome", "Anagram", "Antigram"]
-* Program can find a word by its name.
+* Program can clear the list of words.
+  * Example input: Word.clear_all
+  * Example output: Word.all = []
+* Program can find a word by its term.
   * Example input: Word.find("Palindrome")
   * Example output: palindrome
 * Program ignores case when finding a word.
   * Example input: Word.find("PALINDROME")
   * Example output: palindrome
-* Program can clear the list of words.
-  * Example input: Word.clear_all
-  * Example output: Word.all = []
+* Program returns "word not found" if word is not saved in list.
+  * Example input: Word.find("potato")
+  * Example output: "Word not found"
 
 ## Support and contact details
 
