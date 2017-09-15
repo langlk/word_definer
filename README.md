@@ -17,7 +17,10 @@ _A Ruby Web App_
 * Program stores a word inputted by the user.
   * Example input: "Palindrome"
   * Example output: new Word "Palindrome"
-* Program lets user input a definition for a word.
+* Program raises an error if user does not provide a word.
+  * Example input: ""
+  * Example output: ArgumentError: Must provide a word.
+* Program stores a definition for a word.
   * Example input: palindrome.add_definition("A word or phrase that says the same thing when reversed.")
   * Example output: palindrome.definitions = ["A word or phrase that says the same thing when reversed."]
 * Program lets user input multiple definitions for a word

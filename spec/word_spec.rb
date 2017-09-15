@@ -17,6 +17,10 @@ describe('WordDefiner::Word') do
     anagrams = WordDefiner::Word.new({:term => "anagrams", :definition => "Two words with the same letters."})
   end
 
+  it "raises an error if the user does not provide a term" do
+    expect{WordDefiner::Word.new({:definition => "a void"})}.to(raise_error(ArgumentError))
+  end
+
   describe('#add_definition') do
     it "lets user input multiple definitions for a word" do
       palindrome = WordDefiner::Word.new({:term => "Palindrome"})

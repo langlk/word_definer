@@ -10,6 +10,8 @@ module WordDefiner
     def initialize(attributes)
       if attributes.has_key?(:term)
         @term = attributes[:term]
+      else
+        raise ArgumentError.new("Must provide :term attribute")
       end
       if attributes.has_key?(:definition)
         @definitions = [attributes[:definition]]
