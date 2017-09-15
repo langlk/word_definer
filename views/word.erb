@@ -1,0 +1,19 @@
+<% if @word.class == String %>
+  <h2><%= @word %>.<h2>
+<% else %>
+  <h2><%= @word.term %></h2>
+  <ol>
+    <% @word.definitions.each do |definition| %>
+      <li><%= definition %></li>
+    <% end %>
+  </ol>
+
+  <h4>Add a Definition:</h4>
+  <form action="/word/<%= @word.term.downcase %>" method="post">
+    <div class="form-group">
+      <input id="definition" type="text" name="definition" class="form-control">
+    </div>
+    <button type="submit" class="btn">Add!</button>
+  </form>
+<% end %>
+<h4><a href="/">Back to Word List</a></h4>
