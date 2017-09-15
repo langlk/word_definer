@@ -10,12 +10,15 @@ end
 
 post('/') do
   attributes = {}
-  attributes[:term] = params["term"]
-  if params["definition"].length > 0
-    attributes[:definition] = params["definition"]
+  @blank = params["term"].length == 0
+  unless @blank
+    attributes[:term] = params["term"]
+    if params["definition"].length > 0
+      attributes[:definition] = params["definition"]
+    end
+    word = WordDefiner::Word.new(attributes)
+    word.save
   end
-  word = WordDefiner::Word.new(attributes)
-  word.save
   @word_list = WordDefiner::Word.all
   erb(:word_list)
 end

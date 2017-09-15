@@ -4,6 +4,12 @@ Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
 describe('Word Definer', {:type => :feature}) do
+  it "doesn't let user add a blank word to list" do
+    visit("/")
+    fill_in("term", :with => "")
+    click_button("Add!")
+    expect(page).to have_content("Please Enter a Word")
+  end
   it "adds a word with no definition to the list when only a word is inputted" do
     visit("/")
     fill_in("term", :with => "Test123")
