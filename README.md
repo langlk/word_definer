@@ -49,6 +49,7 @@ _Please contact [kels.langlois@gmail.com](mailto:kels.langlois@gmail.com) with q
 ## Technologies Used
 
 * Ruby
+* Sinatra
 
 ### License
 
