@@ -30,7 +30,8 @@ end
 
 post('/word/:term') do
   @word = WordDefiner::Word.find(params[:term])
-  if @word.class == WordDefiner::Word
+  @blank = params["definition"].length == 0
+  if !@blank & (@word.class == WordDefiner::Word)
     @word.add_definition(params["definition"])
   end
   erb(:word)

@@ -10,6 +10,7 @@ describe('Word Definer', {:type => :feature}) do
     click_button("Add!")
     expect(page).to have_content("Please Enter a Word")
   end
+
   it "adds a word with no definition to the list when only a word is inputted" do
     visit("/")
     fill_in("term", :with => "Test123")
@@ -39,5 +40,14 @@ describe('Word Definer', {:type => :feature}) do
     expect(page).to have_content("A word that spells the same thing backward and forward.")
     click_button("Add!")
     expect(page).to have_content("A word that equals its reverse.")
+  end
+
+  it "doesn't let user enter blank definition on word page" do
+    visit("/")
+    fill_in("term", :with => "Palindrome")
+    click_button("Add!")
+    click_link("Palindrome")
+    click_button("Add!")
+    expect(page).to have_content("Please Enter a Definition")
   end
 end

@@ -18,6 +18,9 @@
           <input id="definition" type="text" name="definition" class="form-control">
         </div>
         <button type="submit" class="btn">Add!</button>
+        <% if @blank %>
+          <span class="error">Please Enter a Definition</span>
+        <%end%>
       </form>
     </div>
   </div>

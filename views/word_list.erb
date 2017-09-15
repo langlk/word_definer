@@ -15,12 +15,7 @@
     <h3>Add a Word</h3>
     <form action="/" method="post">
       <div class="form-group">
-        <label for="term">
-          Word:
-          <% if @blank %>
-            <span class="error">Please Enter a Word</span>
-          <%end%>
-        </label>
+        <label for="term">Word:</label>
         <input id="term" type="text" name="term" class="form-control">
       </div>
       <div class="form-group">
@@ -28,6 +23,9 @@
         <input id="definition" type="text" name="definition" class="form-control">
       </div>
       <button type="submit" class="btn">Add!</button>
+      <% if @blank %>
+        <span class="error">Please Enter a Word</span>
+      <%end%>
     </form>
   </div>
 </div>
