@@ -12,7 +12,7 @@
     </div>
 
     <div class="col-sm-6">
-      <h4>Add a Definition:</h4>
+      <h4 class="definition">Add a Definition:</h4>
       <form action="/word/<%= @word.term.downcase %>" method="post">
         <div class="form-group">
           <input id="definition" type="text" name="definition" class="form-control">
@@ -26,4 +26,4 @@
   </div>
 <% end %>
 
-<h4><a href="/">Back to Word List</a></h4>
+<h4 class="back"><a href="/">Back to Word List</a></h4>
