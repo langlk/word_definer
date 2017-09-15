@@ -6,11 +6,15 @@
 
 ## Description
 
-_A Ruby Web App_
+_A Ruby Web App that creates a custom dictionary. Users can enter words and add definitions to them. The homepage shows a list of words, and each word's definitions can be viewed._
 
 ## Setup/Installation Requirements
 
+_You can find this app online [here](https://floating-stream-23611.herokuapp.com/). To set up on your own computer, follow the instructions below._
+
 * Clone this repository
+* From the project root directory, run ```ruby app.rb```
+* Open ```localhost:4567``` in your web browser.
 
 ## Specifications
 
@@ -20,10 +24,7 @@ _A Ruby Web App_
 * Program raises an error if user does not provide a word.
   * Example input: ""
   * Example output: ArgumentError: Must provide a word.
-* Program stores a definition for a word.
-  * Example input: palindrome.add_definition("A word or phrase that says the same thing when reversed.")
-  * Example output: palindrome.definitions = ["A word or phrase that says the same thing when reversed."]
-* Program lets user input multiple definitions for a word
+* Program lets user input definitions for a word
   * Example input: palindrome.add_definition("A word or phrase that equals its reverse.")
   * Example output: palindrome.definition = ["A word or phrase that says the same thing when reversed.", "A word or phrase that equals its reverse."]
 * Program shows a list of all saved words.
@@ -32,7 +33,7 @@ _A Ruby Web App_
 * Program can clear the list of words.
   * Example input: Word.clear_all
   * Example output: Word.all = []
-* Program can find a word by its term.
+* Program can find a word object by its term.
   * Example input: Word.find("Palindrome")
   * Example output: palindrome
 * Program ignores case when finding a word.
