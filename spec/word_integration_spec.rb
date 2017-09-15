@@ -31,16 +31,12 @@ describe('Word Definer', {:type => :feature}) do
   end
 
   it "displays words in alphabetical order" do
+    test_terms = ["Anagrams", "Palindrome", "Antigrams"]
     visit("/")
-    fill_in("term", :with => "Anagrams")
-    fill_in("definition", :with => "Two words with the same letters.")
-    click_button("Add!")
-    fill_in("term", :with => "Palindrome")
-    fill_in("definition", :with => "Two words with the same letters.")
-    click_button("Add!")
-    fill_in("term", :with => "Antigrams")
-    fill_in("definition", :with => "Two words with the same letters.")
-    click_button("Add!")
+    test_terms.each do |term|
+      fill_in("term", :with => term)
+      click_button("Add!")
+    end
     expect(page).to have_content("Anagrams Antigrams Palindrome")
   end
 
