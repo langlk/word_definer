@@ -11,7 +11,7 @@
         <div class="form-group">
           <input type="text" name="search-term" class="form-control" placeholder="Search">
 
-          <button id="search" type="submit" class="btn">
+          <button id="search" type="submit" class="btn btn-default">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
         </div>
@@ -40,7 +40,7 @@
       </ul>
 
       <% unless @word_list.empty? %>
-        <p><a href="/clear_all">Clear Dictionary</a></p>
+        <p><a class="clear-all" href="/clear_all">Clear Dictionary</a></p>
       <% end %>
     <% end %>
   </div>
@@ -59,7 +59,7 @@
         <input id="definition" type="text" name="definition" class="form-control">
       </div>
 
-      <button type="submit" class="btn word-submit">Add!</button>
+      <button type="submit" class="btn btn-default word-submit">Add!</button>
 
       <% if @blank %>
         <span class="error">Please Enter a Word</span>

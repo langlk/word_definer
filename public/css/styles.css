@@ -24,7 +24,24 @@ h1, h2, h3, h4 {
   color: #ad1313;
 }
 
-/* Individual Word Page */
+a.clear-all {
+  color: #d9534f;
+}
+
+a.clear-all:hover {
+  color: #87120e;
+}
+
+.clear-warning a {
+  display: inline-block;
+  margin: 15px;
+}
+
+.clear-warning form {
+  display: inline-block;
+  margin: 15px;
+}
+
 h4.definition {
   margin-top: 30px;
 }
