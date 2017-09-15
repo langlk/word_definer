@@ -9,13 +9,17 @@ describe('WordDefiner::Word') do
   end
 
   it "stores a word inputted by a user" do
-    palindrome = WordDefiner::Word.new("Palindrome")
+    palindrome = WordDefiner::Word.new({:term => "Palindrome"})
     expect(palindrome.term).to(eq("Palindrome"))
+  end
+
+  it "stores a word and definition inputted by a user" do
+    anagrams = WordDefiner::Word.new({:term => "anagrams", :definition => "Two words with the same letters."})
   end
 
   describe('#add_definition') do
     it "lets user input multiple definitions for a word" do
-      palindrome = WordDefiner::Word.new("Palindrome")
+      palindrome = WordDefiner::Word.new({:term => "Palindrome"})
       palindrome.add_definition("A word or phrase that says the same thing when reversed.")
       palindrome.add_definition("A word or phrase that equals its reverse.")
       expect(palindrome.definitions).to(eq(["A word or phrase that says the same thing when reversed.", "A word or phrase that equals its reverse."]))
@@ -24,7 +28,7 @@ describe('WordDefiner::Word') do
 
   describe('#save') do
     it "saves a word object to the list of words" do
-      anagram = WordDefiner::Word.new("Anagram")
+      anagram = WordDefiner::Word.new({:term => "Anagram"})
       anagram.save
       expect(WordDefiner::Word.all).to(eq(["anagram"]))
     end
@@ -36,9 +40,9 @@ describe('WordDefiner::Word') do
     end
 
     it "returns an array of all terms saved in words" do
-      anagram = WordDefiner::Word.new("Anagram")
+      anagram = WordDefiner::Word.new({:term => "Anagram"})
       anagram.save
-      palindrome = WordDefiner::Word.new("Palindrome")
+      palindrome = WordDefiner::Word.new({:term => "Palindrome"})
       palindrome.save
       expect(WordDefiner::Word.all).to(eq(["anagram", "palindrome"]))
     end
@@ -46,7 +50,7 @@ describe('WordDefiner::Word') do
 
   describe('.clear_all') do
     it "removes all words from the words list" do
-      anagram = WordDefiner::Word.new("Anagram")
+      anagram = WordDefiner::Word.new({:term => "Anagram"})
       anagram.save
       WordDefiner::Word.clear_all
       expect(WordDefiner::Word.all).to(eq([]))
@@ -55,17 +59,17 @@ describe('WordDefiner::Word') do
 
   describe('.find') do
     it "finds a word by its term" do
-      anagram = WordDefiner::Word.new("anagram")
+      anagram = WordDefiner::Word.new({:term => "anagram"})
       anagram.save
-      palindrome = WordDefiner::Word.new("palindrome")
+      palindrome = WordDefiner::Word.new({:term => "palindrome"})
       palindrome.save
       expect(WordDefiner::Word.find("anagram")).to(eq(anagram))
     end
 
     it "ignores case when finding a word" do
-      anagram = WordDefiner::Word.new("anagram")
+      anagram = WordDefiner::Word.new({:term => "anagram"})
       anagram.save
-      palindrome = WordDefiner::Word.new("palindrome")
+      palindrome = WordDefiner::Word.new({:term => "palindrome"})
       palindrome.save
       expect(WordDefiner::Word.find("ANAGRAM")).to(eq(anagram))
     end

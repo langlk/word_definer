@@ -7,9 +7,15 @@ module WordDefiner
 
     attr_reader :term, :definitions
 
-    def initialize(term)
-      @term = term
-      @definitions = []
+    def initialize(attributes)
+      if attributes.has_key?(:term)
+        @term = attributes[:term]
+      end
+      if attributes.has_key?(:definition)
+        @definitions = [attributes[:definition]]
+      else
+        @definitions = []
+      end
     end
 
     def add_definition(definition)
