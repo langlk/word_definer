@@ -74,4 +74,14 @@ describe('Word Definer', {:type => :feature}) do
     click_button("search", :id)
     expect(page).to have_content("Search Results: Word not found")
   end
+
+  it "lets user clear word list" do
+    visit("/")
+    visit("/")
+    fill_in("term", :with => "Palindrome")
+    click_button("Add!")
+    click_link("Clear Dictionary")
+    click_button("Clear All")
+    expect(page).to have_no_content("Palindrome")
+  end
 end

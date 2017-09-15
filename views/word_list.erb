@@ -38,6 +38,10 @@
         </li>
         <% end %>
       </ul>
+
+      <% unless @word_list.empty? %>
+        <p><a href="/clear_all">Clear Dictionary</a></p>
+      <% end %>
     <% end %>
   </div>
 

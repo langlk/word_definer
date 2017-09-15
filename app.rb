@@ -45,3 +45,12 @@ post('/word/:term') do
   end
   erb(:word)
 end
+
+get("/clear_all") do
+  erb(:clear_all)
+end
+
+post("/clear_all") do
+  WordDefiner::Word.clear_all
+  redirect '/'
+end
