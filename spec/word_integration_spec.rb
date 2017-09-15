@@ -13,11 +13,11 @@ describe('Word Definer', {:type => :feature}) do
 
   it "adds a word with no definition to the list when only a word is inputted" do
     visit("/")
-    fill_in("term", :with => "Test123")
+    fill_in("term", :with => "Antigrams")
     click_button("Add!")
-    expect(page).to have_content("Test123")
-    click_link("Test123")
-    expect(page).to have_content("Test123 Add a Definition")
+    expect(page).to have_content("Antigrams")
+    click_link("Antigrams")
+    expect(page).to have_content("Antigrams Add a Definition")
   end
 
   it "adds a word and definition when definition is inputted as well" do
@@ -28,6 +28,20 @@ describe('Word Definer', {:type => :feature}) do
     click_link("Anagrams")
     expect(page).to have_content("Anagrams")
     expect(page).to have_content("Two words with the same letters.")
+  end
+
+  it "displays words in alphabetical order" do
+    visit("/")
+    fill_in("term", :with => "Anagrams")
+    fill_in("definition", :with => "Two words with the same letters.")
+    click_button("Add!")
+    fill_in("term", :with => "Palindrome")
+    fill_in("definition", :with => "Two words with the same letters.")
+    click_button("Add!")
+    fill_in("term", :with => "Antigrams")
+    fill_in("definition", :with => "Two words with the same letters.")
+    click_button("Add!")
+    expect(page).to have_content("Anagrams Antigrams Palindrome")
   end
 
   it "lets user add multiple definitions to a word" do

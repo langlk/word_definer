@@ -28,7 +28,7 @@ module WordDefiner
     end
 
     def self.all
-      @@words.keys
+      @@words.keys.sort
     end
 
     def self.clear_all

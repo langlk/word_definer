@@ -43,11 +43,11 @@ describe('WordDefiner::Word') do
       expect(WordDefiner::Word.all).to(eq([]))
     end
 
-    it "returns an array of all terms saved in words" do
-      anagram = WordDefiner::Word.new({:term => "Anagram"})
-      anagram.save
+    it "returns an array of all terms saved in words, sorted alphabetically" do
       palindrome = WordDefiner::Word.new({:term => "Palindrome"})
       palindrome.save
+      anagram = WordDefiner::Word.new({:term => "Anagram"})
+      anagram.save
       expect(WordDefiner::Word.all).to(eq(["anagram", "palindrome"]))
     end
   end

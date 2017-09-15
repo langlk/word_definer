@@ -27,9 +27,9 @@ _You can find this app online [here](https://floating-stream-23611.herokuapp.com
 * Program lets user input definitions for a word
   * Example input: palindrome.add_definition("A word or phrase that equals its reverse.")
   * Example output: palindrome.definition = ["A word or phrase that says the same thing when reversed.", "A word or phrase that equals its reverse."]
-* Program shows a list of all saved words.
+* Program shows a list of all saved words, sorted alphabetically.
   * Example input: palindrome.save, anagram.save, antigram.save
-  * Example output: Word.all = ["Palindrome", "Anagram", "Antigram"]
+  * Example output: Word.all = ["Anagram", "Antigram", "Palindrome"]
 * Program can clear the list of words.
   * Example input: Word.clear_all
   * Example output: Word.all = []
