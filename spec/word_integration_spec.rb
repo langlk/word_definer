@@ -60,4 +60,18 @@ describe('Word Definer', {:type => :feature}) do
     click_button("Add!")
     expect(page).to have_content("Please Enter a Definition")
   end
+
+  it "lets user search for a word by its term" do
+    visit("/")
+    fill_in("search-term", :with => "Palindrome")
+    click_button("search", :id)
+    expect(page).to have_content("Search Results: Palindrome")
+  end
+
+  it "informs user when it doesn't find a word" do
+    visit("/")
+    fill_in("search-term", :with => "Oxymoron")
+    click_button("search", :id)
+    expect(page).to have_content("Search Results: Word not found")
+  end
 end

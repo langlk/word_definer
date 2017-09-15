@@ -5,25 +5,40 @@
 <div class="row">
   <div class="col-sm-6">
     <h2 class="words-title">Words</h2>
+
     <div class="search-container">
       <form id="search-box" action="/">
         <div class="form-group">
           <input type="text" name="search-term" class="form-control" placeholder="Search">
 
-          <button type="button" class="btn">
+          <button id="search" type="submit" class="btn">
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           </button>
         </div>
       </form>
     </div>
-  
-    <ul>
-      <% @word_list.each do |word| %>
+
+    <% if @search_term %>
+      <h4>Search Results:</h4>
+      <% if @search_result == "Word not found" %>
+        <p>Word not found: "<%= @search_term %>"</p>
+      <% else %>
+        <ul>
+          <li>
+            <a href="/word/<%= @search_term %>"><%= @search_term.capitalize %></a>
+          </li>
+        </ul>
+      <% end %>
+      <a href="/">Clear Search</a>
+    <% else %>
+      <ul>
+        <% @word_list.each do |word| %>
         <li>
           <a href="/word/<%= word %>"><%= word.capitalize %></a>
         </li>
-      <% end %>
-    </ul>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 
   <div class="col-sm-6">

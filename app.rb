@@ -5,6 +5,15 @@ require "./lib/word"
 
 get('/') do
   @word_list = WordDefiner::Word.all
+  @search_term = params["search-term"]
+  if @search_term
+    search_result = WordDefiner::Word.find(@search_term)
+    if search_result.class == String
+      @search_result = search_result
+    else
+      @search_result = search_result.term.downcase
+    end
+  end
   erb(:word_list)
 end
 
