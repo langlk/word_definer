@@ -19,7 +19,7 @@ _A Ruby Web App_
   * Example output: new Word "Palindrome"
 * Program lets user input a definition for a word.
   * Example input: palindrome.add_definition("A word or phrase that says the same thing when reversed.")
-  * Example output: palindrome.definition = ["A word or phrase that says the same thing when reversed."]
+  * Example output: palindrome.definitions = ["A word or phrase that says the same thing when reversed."]
 * Program lets user input multiple definitions for a word
   * Example input: palindrome.add_definition("A word or phrase that equals its reverse.")
   * Example output: palindrome.definition = ["A word or phrase that says the same thing when reversed.", "A word or phrase that equals its reverse."]
