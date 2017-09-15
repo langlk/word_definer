@@ -6,7 +6,7 @@
 
 ## Description
 
-_A Ruby Web App that creates a custom dictionary. Users can enter words and add definitions to them. The homepage shows a list of words, and each word's definitions can be viewed._
+_A Ruby Web App that creates a custom dictionary. Users can enter words and add definitions to them. The homepage shows a searchable list of words, and users can click on a word to view or add definitions. Users can also clear the list of words by selecting "Clear Dictionary"._
 
 ## Setup/Installation Requirements
 
@@ -18,30 +18,110 @@ _You can find this app online [here](https://floating-stream-23611.herokuapp.com
 
 ## Specifications
 
-* Program stores a word inputted by the user.
-  * Example input: "Palindrome"
-  * Example output: new Word "Palindrome"
-* Program raises an error if user does not provide a word.
-  * Example input: ""
-  * Example output: ArgumentError: Must provide a word.
-* Program lets user input definitions for a word
-  * Example input: palindrome.add_definition("A word or phrase that equals its reverse.")
-  * Example output: palindrome.definition = ["A word or phrase that says the same thing when reversed.", "A word or phrase that equals its reverse."]
-* Program shows a list of all saved words, sorted alphabetically.
-  * Example input: palindrome.save, anagram.save, antigram.save
-  * Example output: Word.all = ["Anagram", "Antigram", "Palindrome"]
-* Program can clear the list of words.
-  * Example input: Word.clear_all
-  * Example output: Word.all = []
-* Program can find a word object by its term.
-  * Example input: Word.find("Palindrome")
-  * Example output: palindrome
-* Program ignores case when finding a word.
-  * Example input: Word.find("PALINDROME")
-  * Example output: palindrome
-* Program returns "word not found" if word is not saved in list.
-  * Example input: Word.find("potato")
-  * Example output: "Word not found"
+#### ```WordDefiner::Word```
+
+_Underlying class that the application uses to store and find words and their definitions._
+
+##### Class Methods
+
+##### ```.new(attributes)```
+* _Creates a new Word object. ```attributes``` is a Hash, and must include a key-value pair ```:term => "term"```. Optionally, attributes can include ```:definition => "definition"``` (if this is not included, word is initialized without a definition)._
+  * Example Input:
+    ```
+    anagram = Word.new({:term => "Anagram"})
+    ```
+  * Example Output:
+    ```
+    anagram.term = "Anagram"
+    anagram.definitions = []
+    ```
+  * Example Input:
+    ```
+    anagram = Word.new({:term => "Palindrome", :definition => "A type of word"})
+    ```
+  * Example Output:
+    ```
+    anagram.term = "Palindrome"
+    anagram.definitions = ["A type of word"]
+    ```
+
+##### ```.all```
+* _Returns a list of the terms of all saved words, sorted alphabetically._
+  * Example Input:
+    ```
+    palindrome.save
+    anagram.save
+    antigram.save
+    ```
+  * Example Output:
+    ```
+    Word.all = ["anagram", "antigram", "palindrome"]
+    ```
+
+##### ```.clear```
+* _Clears list of all saved words._
+  * Example Input:
+    ```
+    Word.clear_all
+    ```
+  * Example Output:
+    ```
+    Word.all = []
+    ```
+
+##### ```.find(term)```
+* _Finds a saved word object by its terms, ignoring case. Returns "Word not found" if term does not match a saved word._
+  * Example Input:
+    ```
+    Word.find("Palindrome")
+    ```
+  * Example Output:
+    ```ruby
+    palindrome # Word object with term = "palindrome"
+    ```
+  * Example Input:
+    ```
+    Word.find("Oxymoron")
+    ```
+  * Example Output:
+    ```
+    "Word not found"
+    ```
+
+##### Instance Methods
+
+##### ```#term```
+* _Returns a word's term._
+  * Example Input:
+    ```
+    palindrome.term
+    ```
+  * Example Output:
+    ```
+    "Palindrome"
+    ```
+
+##### ```#definitions```
+* _Returns an array of a word's definitions_
+  * Example Input:
+    ```
+    palindrome.definitions
+    ```
+  * Example Output:
+    ```
+    ["A type of word"]
+    ```
+
+##### ```#add_definition```
+* _Adds a definition to the word's list of definitions._
+  * Example Input:
+    ```
+    palindrome.add_definition("A word that equals its reverse.")
+    ```
+  * Example Output:
+    ```
+    palindrome.definitions = ["A type of word", "A word that equals its reverse."]
+    ```
 
 ## Support and contact details
 
