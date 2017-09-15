@@ -16,10 +16,15 @@ h1, h2, h3, h4 {
   margin-right: auto;
 }
 
+.btn.word-submit {
+  margin-right: 1em;
+}
+
 .error {
   color: #ad1313;
 }
 
+/* Individual Word Page */
 h4.definition {
   margin-top: 30px;
 }
@@ -28,6 +33,32 @@ h4.back {
   margin-top: 25px;
 }
 
-.btn {
-  margin-right: 1em;
+.words-title {
+  display: inline-block;
+  width: 45%;
+}
+
+.search-container {
+  display: inline-block;
+  width: 50%;
+  min-width: 170px;
+  text-align: right;
+}
+
+#search-box {
+  display: inline-block;
+  width: 80%;
+  min-width: 170px;
+}
+
+#search-box input {
+  width: 70%;
+  min-width: 120px;
+  display: inline-block;
+}
+
+#search-box .btn {
+  height: 34px;
+  vertical-align: top;
+  margin: none;
 }
