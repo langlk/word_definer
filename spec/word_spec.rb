@@ -62,15 +62,7 @@ describe('WordDefiner::Word') do
   end
 
   describe('.find') do
-    it "finds a word by its term" do
-      anagram = WordDefiner::Word.new({:term => "anagram"})
-      anagram.save
-      palindrome = WordDefiner::Word.new({:term => "palindrome"})
-      palindrome.save
-      expect(WordDefiner::Word.find("anagram")).to(eq(anagram))
-    end
-
-    it "ignores case when finding a word" do
+    it "finds a word by its term, ignoring case" do
       anagram = WordDefiner::Word.new({:term => "anagram"})
       anagram.save
       palindrome = WordDefiner::Word.new({:term => "palindrome"})
