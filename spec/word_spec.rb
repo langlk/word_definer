@@ -3,5 +3,9 @@
 require 'rspec'
 require 'word'
 
-describe('Word') do
+describe('WordDefiner::Word') do
+  it "stores a word inputted by a user" do
+    palindrome = WordDefiner::Word.new("Palindrome")
+    expect(palindrome.term).to(eq("Palindrome"))
+  end
 end

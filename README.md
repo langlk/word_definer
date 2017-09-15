@@ -14,9 +14,6 @@ _A Ruby Web App_
 
 ## Specifications
 
-* Program does not store an empty string as a word.
-  * Example input: ""
-  * Example output: "Please enter a word."
 * Program stores a word inputted by the user.
   * Example input: "Palindrome"
   * Example output: new Word "Palindrome"
