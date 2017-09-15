@@ -4,6 +4,10 @@ require 'rspec'
 require 'word'
 
 describe('WordDefiner::Word') do
+  before() do
+    WordDefiner::Word.clear_all
+  end
+  
   it "stores a word inputted by a user" do
     palindrome = WordDefiner::Word.new("Palindrome")
     expect(palindrome.term).to(eq("Palindrome"))
@@ -15,6 +19,35 @@ describe('WordDefiner::Word') do
       palindrome.add_definition("A word or phrase that says the same thing when reversed.")
       palindrome.add_definition("A word or phrase that equals its reverse.")
       expect(palindrome.definitions).to(eq(["A word or phrase that says the same thing when reversed.", "A word or phrase that equals its reverse."]))
+    end
+  end
+
+  describe('#save') do
+    it "saves a word object to the list of words" do
+      anagram = WordDefiner::Word.new("Anagram")
+      anagram.save
+      expect(WordDefiner::Word.all).to(eq(["anagram"]))
+    end
+  end
+
+  describe('.all') do
+    it "returns nothing if no words have been created" do
+      expect(WordDefiner::Word.all).to(eq([]))
+    end
+
+    it "returns an array of all terms saved in words" do
+      anagram = WordDefiner::Word.new("Anagram")
+      anagram.save
+      palindrome = WordDefiner::Word.new("Palindrome")
+      palindrome.save
+      expect(WordDefiner::Word.all).to(eq(["anagram", "palindrome"]))
+    end
+  end
+
+  describe('.clear_all') do
+    it "removes all words from the words list" do
+      WordDefiner::Word.clear_all
+      expect(WordDefiner::Word.all).to(eq([]))
     end
   end
 end
