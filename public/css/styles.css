@@ -1,13 +1,31 @@
 body {
   font-family: 'Arvo', serif;
+  color: #144d70;
+  background-color: #99d8ff;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Ultra', serif;
+  color: #5434ad;
+}
+
+a {
+  color: #4a3582;
+}
+
+a:hover {
+  color: #6b4dbc;
 }
 
 .jumbotron {
   padding: 25px 0px;
+  color: #4c2da3;
+  background-color: #b2a1e2;
+  border-bottom: 3px solid #4c2da3;
+}
+
+.jumbotron p {
+  color: #144d70;
 }
 
 .container.contents {
@@ -24,14 +42,6 @@ h1, h2, h3, h4 {
   color: #ad1313;
 }
 
-a.clear-all {
-  color: #d9534f;
-}
-
-a.clear-all:hover {
-  color: #87120e;
-}
-
 .clear-warning a {
   display: inline-block;
   margin: 15px;
@@ -40,6 +50,17 @@ a.clear-all:hover {
 .clear-warning form {
   display: inline-block;
   margin: 15px;
+}
+
+.clear-warning .btn-warning {
+  color: #fff;
+  background-color: #185c87;
+  border: 1px solid #487fa0;
+}
+
+.clear-warning .btn-warning:hover {
+  background-color: #144d70;
+  border: 1px solid #447a9b;
 }
 
 h4.definition {
